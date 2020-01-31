@@ -1,0 +1,44 @@
+package homework6.trees;
+import java.util.*;
+
+
+public class Candidate implements Comparable<Candidate>{
+	private String name;
+	private String fullname;
+	private double percent;
+
+
+		public Candidate(String fullname,String name,double percent) {
+			this.name=name;
+			this.fullname=fullname;
+			this.percent=percent;
+		}
+		
+		public String getName(){
+			return name;
+		}
+		public double getPercent() {
+			return percent;
+		}
+		
+		
+		public int compareTo(Candidate input) {
+			if(this.percent>input.getPercent()) {
+				return 1;
+			}
+			else if(this.percent<input.getPercent()){
+				return -1;
+			}
+			else {
+				return 0;
+			}
+			
+		}
+		public String toString() {
+			String answer;
+			answer=fullname+" "+percent;
+			return answer;
+		}
+	
+
+}

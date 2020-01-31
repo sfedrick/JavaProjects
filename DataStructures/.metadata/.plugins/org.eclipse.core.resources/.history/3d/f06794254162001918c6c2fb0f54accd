@@ -1,0 +1,18 @@
+package homework8.hash;
+import java.util.*;
+public class Main {
+	public static void main(String arg[]) {
+		ArrayList<Comparable<person>> people=Read.readFile("/Users/thedude/Desktop/shortsave.txt");
+		Deduplication<person> copycats= new Deduplication(people);
+		ArrayList<Comparable<person>> allpairs=copycats.allPairsDeduplication(people);
+		ArrayList<person> hashlin=copycats.hashLinearDeduplication(people);
+		ArrayList<person> hashdouble=copycats.hashDoubleDeduplication(people);
+		ArrayList<person> quick=copycats.quicksortDeduplication(people);
+		System.out.println("hello");
+		for(Comparable<person> x:allpairs) {
+			System.out.println(x);
+		}
+		System.out.println("done");
+	}
+
+}

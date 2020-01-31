@@ -1,0 +1,25 @@
+package lab3.LinkedList;
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+		City[] us= new City[5];
+		CityDLL list= new CityDLL();
+		us[0]=new City("Philadelphia", 1567442);
+		us[1]=new City("New York", 8550405);
+		us[2]=new City("Houston", 2296224);
+		us[3]=new City("Chicago", 2720546);
+		us[4]=new City("LosAngeles", 3971883);
+
+		for(City c:us) {
+			System.out.println(list.size());
+			list.insertsorted(c);
+			
+			 	
+		}
+		City addlast=new City("I was added last", 1567442);
+		list.addFirst(addlast);
+		 System.out.println(list);
+		 
+	}
+
+}

@@ -1,0 +1,17 @@
+package homework2.zipcodecontinued;
+
+public class PopulatedPlace extends LocatedPlace {
+	private int population;
+	public PopulatedPlace(String inputzip,String inputstate, String inputtown,int latitude,int longitude,int population){
+		super(inputzip,inputstate,inputtown,latitude,longitude);
+		this.population=population;	
+	}
+	public String toString() {
+		String pop= Integer.toString(population);
+		if(this.getState().length()<this.getTown().length())
+			return this.getTown()+", "+this.getState()+", "+pop;
+		else 
+			return this.getState()+", "+this.getTown()+", "+pop;
+	}
+
+}

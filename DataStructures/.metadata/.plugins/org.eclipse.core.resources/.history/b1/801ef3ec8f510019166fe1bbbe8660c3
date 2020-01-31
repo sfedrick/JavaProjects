@@ -1,0 +1,106 @@
+package homework6.trees;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import homework2.zipcodecontinued.LookupZip;
+import homework2.zipcodecontinued.PopulatedPlace;
+
+
+
+
+public class ReadFile {
+	private static double average=0.0;
+	private static int linecounter=0;
+	public static Candidate parseLine( String inputline){
+		String line= new String(inputline);
+		String delims = "[,]";
+		String[] splitten = line.split(delims);
+		for(String split:splitten) {
+			System.out.println(split);
+		}
+		Double percent=Double.parseDouble(splitten[2]);
+		Candidate value= new Candidate(splitten[0],splitten[1],percent);
+		return value;
+		
+	}
+	
+	public static void parseLine(String inputline, BinaryTree tree){
+		
+		Candidate value= parseLine(inputline);
+		Boolean copycat=tree.contains(value);
+		if(copycat) {
+				tree.update(value);
+			}
+		else {
+				tree.insert(value);
+			}
+	}
+	public static void parseAverage(String inputline){
+		linecounter++;
+		String line= new String(inputline);
+		String delims = "[,]";
+		String[] splitten = line.split(delims);
+		Double percent=Double.parseDouble(splitten[2]);
+		average=average+percent;
+	}	
+
+
+	
+	
+	
+	
+	
+	
+	public static BinaryTree readFile(String inputfilename) {
+		File filename= new File(inputfilename);
+		Scanner rawinput= null;
+		BinaryTree tree = new BinaryTree();
+		ArrayList<Candidate>list=new ArrayList<Candidate>();
+		
+		try {
+			rawinput= new Scanner(filename);
+			rawinput.nextLine();
+			while(rawinput.hasNextLine()) {
+				String data=new String(rawinput.nextLine());
+				Candidate value=parseLine(data);
+				list.add(value);
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int mid= list.size()/2;
+		Candidate root= list.get(mid);
+		tree.insert(root);
+		list.remove(mid);
+		for(Candidate runner: list) {
+			tree.insert(runner);
+		}
+	
+		return tree;
+	}
+	public static void readFile(String[] inputfilename,BinaryTree tree) {
+		for(String file: inputfilename) {
+			File filename= new File(file);
+			Scanner rawinput= null;
+			try {
+				rawinput= new Scanner(filename);
+				while(rawinput.hasNextLine()) {
+					String data=new String(rawinput.nextLine());
+					ReadFile.parseLine(data,tree);
+					
+					
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
+}

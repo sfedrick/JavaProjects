@@ -1,0 +1,41 @@
+package test;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner object = new Scanner(System.in);
+		int input=object.nextInt();
+		int small=0;
+		int big=100;
+		int[] test=new int[100];
+		for(int i=0;i<100;i++) {
+			test[i]=i;
+			
+		}
+		int min=0;
+		int max=test.length-1;
+		int mid;
+		int check;
+		int answer;
+		while(min<max) {
+			mid=(max+min)/2;
+			check=test[mid];
+			
+			if(input==check) {
+				answer=mid;
+				System.out.println("this is the index of the number"+answer);
+				
+			}
+			else if(input<check) {
+				max=mid;
+			}
+			else {
+				min=mid;
+			}
+			
+			
+		}
+	}
+
+}

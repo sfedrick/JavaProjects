@@ -1,0 +1,18 @@
+package test;
+
+public class Main {
+	public static void main(String[] args) {
+		int small=0;
+		int big=100;
+		int[] test=new int[100];
+		for(int i=0;i<100;i++) {
+			test[i]=i;
+			
+		}
+		for(int i:test) {
+		System.out.println(i);
+			
+		}
+	}
+
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="ArrayList&lt;String&gt; namestrings = new ArrayList&lt;String&gt;();" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="write"/>
+			<item value="get"/>
+			<item value="gey"/>
+			<item value="insert"/>
+			<item value="insertion"/>
+			<item value="insertion "/>
+			<item value="ArrayList&lt;PopulatedPlace&gt;places= new PopulatedPlace[placelist.size()-1];"/>
+			<item value="places[index]"/>
+			<item value="PopulatedPlace[] "/>
+			<item value="unchecked"/>
+			<item value="0"/>
+			<item value="System.out.print"/>
+			<item value="System"/>
+			<item value="Sytem.out.print"/>
+			<item value="Sytem"/>
+		</list>
+		<list key="replacehistory">
+			<item value="ArrayList&lt;PopulatedPlace&gt;places= new ArrayList(placelist.size()-1);"/>
+			<item value="place."/>
+			<item value="ArrayList&lt;PopulatedPlace&gt;"/>
+			<item value="Name"/>
+			<item value="City"/>
+			<item value="city"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="290" key="DIALOG_WIDTH"/>
+		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
+		<item value="409" key="DIALOG_HEIGHT"/>
+		<item value="695" key="DIALOG_X_ORIGIN"/>
+		<item value="328" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

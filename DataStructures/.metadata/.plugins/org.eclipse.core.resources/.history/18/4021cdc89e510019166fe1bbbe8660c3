@@ -1,0 +1,149 @@
+package homework6.trees;
+
+
+
+public class BinaryTree<E extends Comparable<E>> implements BinaryTreeInterface<E> {
+
+	private class Node<E> {
+		private E element;
+		private Node<E> left;
+		private Node<E> right; //constructors, getters, setters public boolean isLeaf(){
+		public Node(E data, Node<E> left,Node<E> right) {
+			this.element = data;
+			this.left = left;
+			this.right=right;
+		}
+		public E getData() {return element;}
+		public Node<E> getLeft() {return left;}
+		public Node<E> getRight() {return right;}
+		public void setLeft(Node n) {left = n;}
+		public void setRight(Node n) {right= n;}
+		public void setData(E data) {element=data;}
+	}
+	private Node<E> root = null;
+	private int size=0;
+	private int heightchecker=-1;
+	private int height;
+	public BinaryTree() {};
+	
+	public BinaryTree(Node<E> root) {
+		this.root=root;
+		
+	};
+ 	public int size() {
+ 		return size;
+ 	}
+ 	
+ 	
+    public boolean isEmpty() {
+    	return size==0;
+    }
+    
+    
+    public void insert(E element) {
+    	heightchecker=0;
+    	root=insertRec(root,element);
+    	if(height==-1)
+    		height=heightchecker;
+    	else if (height<heightchecker) {
+    		height=heightchecker;
+    	}
+    	else {
+    		height=height;
+    	}
+    	
+    }
+    
+    public Node<E> insertRec(Node<E>rootin,E data){
+    	
+    	if(rootin == null) {
+    		size++;
+    		heightchecker++;
+    		return new Node<E>(data,null,null);
+    		
+    	}
+    	if (data.compareTo(root.getData()) < 0){
+    		
+    		heightchecker++;
+    		rootin.setLeft(insertRec(rootin.getLeft(), data));
+    	}
+    	else {
+    		heightchecker++;
+    		rootin.setRight(insertRec(rootin.getRight(), data));}
+    	return rootin;
+    }
+    
+    public void update(E datainput){
+    	update(root, datainput);
+    	
+    }
+    /* this has not been tested come back and test it
+     * 
+     */
+    public Node<E> update(Node<E>rootin,E datainput){
+    	
+    	E data=rootin.getData();
+    
+    	if(contains(rootin.getData())) {
+    		if (data.compareTo(data)==0) {
+    			
+        		rootin.setData(datainput);
+        		return rootin;
+        	}
+        	else if(data.compareTo(data)<0) {
+        		return update(rootin.getLeft(), datainput);
+        	}
+        	else {
+        		return update(rootin.getRight(), datainput);
+        	}
+    		
+    	}
+    	else {
+    		System.out.println("Something is very wrong check Contains or the update method in Binary tree");
+    		return rootin;
+    	}
+    	
+    }
+    public boolean contains(E element) {
+    	return recContains(root,element);
+    	
+    }
+    
+    public boolean recContains(Node<E>rootin, E data) {
+    	if(rootin==null) {
+    		return false;
+    	}
+    	else if (data.compareTo(data)==0) {
+    		return true;
+    	}
+    	else if(data.compareTo(data)<0) {
+    		System.out.print(rootin.getData());
+    		return recContains(rootin.getLeft(), data);
+    	}
+    	else {
+    		System.out.print(rootin.getData());
+    		return recContains(rootin.getRight(), data);
+    	}
+    }
+    
+    public int height() {
+    	return height;
+    }
+
+    public void printInOrder() {
+    	InOrder(root);
+    }
+	public void InOrder(Node<E> rootin) {
+		if (rootin != null){
+			
+    		InOrder(rootin.left); 
+    		System.out.println(rootin.getData());
+    		InOrder(rootin.right);
+    		
+    		
+    	}
+	}
+	
+	
+	
+}

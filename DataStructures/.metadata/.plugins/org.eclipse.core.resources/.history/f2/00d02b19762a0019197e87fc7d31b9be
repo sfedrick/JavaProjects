@@ -1,0 +1,46 @@
+package homework2.zipcodecontinued;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+// Main entry point into program
+public class Main {
+// Entry  into Main
+	public static void main(String[] args) {
+		
+		//produces an array of places with Zipcode,State, and town
+		PopulatedPlace[] places= LookupZip.readZipCodes("/Users/thedude/javaprograms/homework/A1/uszipcodes.csv");
+		
+		// Takes zipcode input from user
+	    String zipinput= new String();
+	    
+	    //outputs the zipcode if it's a zicode of a place, inputs nothing if not, and exits with "00000" input 
+	    while(!(zipinput.equals("00000"))){
+	    	Scanner object = new Scanner(System.in);
+		    
+		    zipinput = object.nextLine(); 
+		    
+		    if ((LookupZip.lookupZip(places,zipinput).getZip()).equals("")&&!(zipinput.equals("00000"))){
+		    	System.out.println("zipcode: "+zipinput);
+		    	System.out.println("No such zipcode");
+		    }
+		    else if(!(zipinput.equals("00000"))) {
+		    System.out.println("zipcode: "+zipinput);
+		    System.out.println(LookupZip.lookupZip(places,zipinput));
+		    }
+		    else {
+		    	System.out.println("zipcode: "+zipinput);
+		    	System.out.println("Good Bye!");
+		    }
+	    
+	  }
+	}
+
+}
+
+
+
+

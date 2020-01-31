@@ -1,0 +1,12 @@
+package homework2.zipcodecontinued;
+
+public class LocatedPlace extends Place{
+	private int latitude;
+	private int longitude;
+	public LocatedPlace(String inputzip,String inputstate, String inputtown,int latitude,int longitude){
+		super(inputzip,inputstate,inputtown);
+		this.latitude=latitude;
+		this.longitude=longitude;
+	}
+	
+}

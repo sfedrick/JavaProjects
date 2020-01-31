@@ -1,0 +1,24 @@
+package homework6.trees;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import homework6.zipcode.LookupZip;
+import homework6.zipcode.PopulatedPlace;
+
+public class Main {
+	public static void main(String arg[]) {
+		
+		BinaryTree tree=ReadFile.readFile("/Applications/notes/Classes/cs206/assignments/a6/polls/dempres_20190210_1.csv");
+		
+		
+		Candidate tester=new Candidate("Biden","Joseph R. Biden Jr.",25.0);
+		System.out.println(tester);
+		System.out.println(tree.contains(tester));
+		tree.removeRec(tester);
+		System.out.println(tree.contains(tester));
+		
+	}
+
+}

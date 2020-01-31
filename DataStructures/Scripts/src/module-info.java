@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author thedude
+ *
+ */
+module Scripts {
+}

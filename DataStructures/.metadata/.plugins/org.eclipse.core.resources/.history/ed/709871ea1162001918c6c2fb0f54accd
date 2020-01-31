@@ -1,0 +1,15 @@
+package homework8.hash;
+import java.util.*;
+public class Main {
+	public static void main(String arg[]) {
+		ArrayList<person> people=Read.readFile("/Users/thedude/Desktop/shortsave.txt");
+		Deduplication<person> copycats= new Deduplication(people);
+		//copycats.allPairsDeduplication();
+		//ArrayList<person> finished=copycats.hashLinearDeduplication();
+		ArrayList<person> finished=copycats.quicksortDeduplication();
+		for(person x:finished) {
+			System.out.println(x);
+		}
+	}
+
+}

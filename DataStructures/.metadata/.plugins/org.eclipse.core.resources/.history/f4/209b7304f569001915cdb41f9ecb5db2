@@ -1,0 +1,13 @@
+package homework9.pictures;
+
+public class Main {
+	public static void main(String[] args) {
+		int[][] multiples = new int[4][2];  
+		for(int i=0;i<4;i++) {
+			for(int j=0;j<2;j++) {
+				multiples[i][j]=i;
+			}
+		}
+		System.out.println(multiples[3][1]);
+	}
+}

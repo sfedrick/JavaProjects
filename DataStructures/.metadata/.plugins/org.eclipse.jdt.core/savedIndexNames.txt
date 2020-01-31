@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/Users/thedude/eclipse-workspace/CS206/.metadata/.plugins/org.eclipse.jdt.core
+2208506105.index
+3401309775.index
+4154239352.index
+2876633005.index

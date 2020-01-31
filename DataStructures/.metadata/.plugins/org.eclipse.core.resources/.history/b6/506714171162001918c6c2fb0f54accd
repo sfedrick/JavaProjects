@@ -1,0 +1,91 @@
+package homework8.hash;
+import java.util.*;
+
+import test.QuickSort;
+
+
+public class Deduplication<E>{
+	private ArrayList<Comparable <E>> input;
+	private ProbeHashMap hash= new ProbeHashMap(1000003);
+	private int allpairscopy=0;
+	private int hashcopy=0;
+	private boolean allpairran=false;
+	public Deduplication(ArrayList<Comparable<E>>input) {
+		this.input=input;
+		
+	}
+	
+	public ArrayList<Comparable <E>> allPairsDeduplication(){
+		allpairran=true;
+		ArrayList<Comparable <E>> allpair= new ArrayList();
+		for(Comparable x: input) {
+			int i=0;
+			boolean remove=false;
+			for(Comparable <E> y: input) {
+				if(y!=null && x!=null) {
+					if(x.compareTo(y)==0 && remove) {
+						input.set(i,null);
+						allpairscopy=allpairscopy+1;		
+					}
+					else if(x.compareTo(y)==0) {
+						remove=true;
+					}
+				}
+				i=i+1;
+			}
+		}
+		return allpair;
+		
+	}
+	public int getAllpairscopy(){
+		if(!allpairran) {
+			allPairsDeduplication();
+		}
+		return allpairscopy;
+	}
+	
+	
+	public ArrayList<E> hashLinearDeduplication(){
+		ArrayList<E> hasharray= new ArrayList();
+		for(Comparable x: input) {
+			
+			if(hash.get(x)!= null) {
+				hashcopy=hashcopy+1;
+			}
+			else {
+				hash.put(x,x);
+			}
+		}
+		Iterable<E> hashiterate= hash.keySet();
+		for(E x: hashiterate) {
+			hasharray.add(x);
+			
+		}
+		
+		return hasharray;
+		
+	}
+	
+	public ArrayList<Comparable<E>> quicksortDeduplication(){
+		int n = input.size(); 
+        QuickSort quick= new QuickSort(input); 
+        
+      
+        //why is this happening idk please help
+        quick.sort();
+	}
+	
+	
+	
+	public String toString(){
+		String value="all pair copies"+getAllpairscopy()+"  "+"\n";
+		int i=0;
+		for(Comparable <E> y: input) {
+			value=value+"person"+i+": "+y+"\n";
+			 i=i+1;
+		}
+		return value;
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+package test;
+
+public class Main {
+	public static void main(String[] args) {
+		int small=1;
+		int big=10;
+		int remain=big%small;
+		System.out.println(remain);
+	}
+
+}

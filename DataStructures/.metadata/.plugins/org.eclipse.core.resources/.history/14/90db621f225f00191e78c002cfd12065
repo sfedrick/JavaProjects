@@ -1,0 +1,11 @@
+package homework8.hash;
+import java.util.*;
+public class Main {
+	public static void main(String arg[]) {
+		ArrayList<person> people=Read.readFile("/Applications/notes/Classes/cs206/assignments/a8/2011.csv");
+		Deduplication<person> copycats= new Deduplication(people);
+		copycats.allPairsDeduplication();
+		System.out.print(copycats);
+	}
+
+}

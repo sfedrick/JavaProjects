@@ -1,0 +1,63 @@
+package homework7.heaps;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+
+public class Main {
+	public static void main(String args[]) {
+		
+		ArrayList<String> files= new ArrayList<String>();
+		String[] arg= {"/Applications/notes/Classes/cs206/assignments/a6/polls/dempres_20190210_2.csv","/Applications/notes/Classes/cs206/assignments/a6/polls/dempres_20190211_1.csv"};
+		OldBinaryTree filetree= new OldBinaryTree();
+		for(int i=0;i<arg.length;i++) {
+        		filetree.insert(arg[i]);
+                
+            }
+		String[] split= filetree.fileInOrder().split("[$]");
+		for(String splitten: split) {
+			if(!splitten.contentEquals(""))
+				files.add(splitten);
+			else {
+				String garbage=splitten;
+			}
+		}
+
+		Candidate tester=new Candidate("Biden","Joseph R., Biden Jr.",25);
+
+        ArrayBinaryTree tree=ReadFile.readFile(files.get(0));
+        ArrayHeap heap=ReadFileHeap.readFile(files.get(0));
+        String garbarge=files.remove(0);
+        ReadFile.readFile(files,tree);
+        ReadFileHeap.readFile(files,heap);
+        System.out.println(tree.toStringBreadthFirst());
+		heap.remove(tester);
+       
+        System.out.println(heap.toStringBreadthFirst());
+		
+		heap.peekTopN(5);
+		 System.out.println(heap.toStringBreadthFirst());
+		/*
+		
+		
+		System.out.println("In order");
+		tree.printInOrder();
+		System.out.println("\n"+"Post order");
+		tree.printPostOrder();
+		
+		System.out.println("\n"+"Pre order");
+		tree.printPreOrder();
+		
+		System.out.println();
+		System.out.println(tree.contains(tester));
+		System.out.println(tree.remove(tester));
+		
+		System.out.println(tree.contains(tester));
+		*/
+	}
+
+}
+
+
